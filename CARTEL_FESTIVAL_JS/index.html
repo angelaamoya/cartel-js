@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartel del festival · Array de objetos</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="cabecera">
+        <p class="cabecera__kicker">Diseño Web Avanzado · Tema 3</p>
+        <h1>Cartel del festival</h1>
+        <p class="cabecera__texto">El cartel no está escrito en el HTML: lo genera JavaScript a partir de un <strong>array de objetos</strong>. Las instrucciones están en <code>js/script.js</code>.</p>
+    </header>
+
+    <main class="contenido">
+
+        <!-- ============ FILTROS POR DÍA ============ -->
+        <!-- Cada botón guarda en data-dia el día que filtra -->
+        <nav class="filtros" aria-label="Filtrar por día">
+            <button type="button" class="filtro is-activo" data-dia="Todos">Todos</button>
+            <button type="button" class="filtro" data-dia="Viernes">Viernes</button>
+            <button type="button" class="filtro" data-dia="Sábado">Sábado</button>
+            <button type="button" class="filtro" data-dia="Domingo">Domingo</button>
+        </nav>
+
+        <p class="contador" id="contador">Mostrando 0 artistas</p>
+
+        <!-- ============ CARTEL ============ -->
+        <!-- Vacío a propósito: el JavaScript crea aquí dentro las tarjetas.
+             Cada tarjeta debe tener esta estructura:
+
+             <article class="artista">
+                 <div class="artista__poster" style="background-color: COLOR">
+                     <h2 class="artista__nombre">NOMBRE</h2>
+                 </div>
+                 <div class="artista__info">
+                     <p class="artista__datos">GÉNERO · DÍA</p>
+                     <button type="button" class="boton boton--borde boton-artista" data-indice="POSICIÓN">Ver más</button>
+                 </div>
+             </article>
+        -->
+        <section class="cartel" id="cartel"></section>
+
+    </main>
+
+    <!-- ============ VENTANA MODAL (una sola para todos) ============ -->
+    <div class="modal" id="modal">
+        <div class="modal__caja">
+            <button type="button" class="modal__cerrar" id="modal-cerrar" aria-label="Cerrar">×</button>
+            <p class="modal__etiqueta" id="modal-etiqueta">Día · Hora · Escenario</p>
+            <h2 class="modal__titulo" id="modal-titulo">Nombre del artista</h2>
+            <p class="modal__genero" id="modal-genero">Género</p>
+            <p class="modal__texto" id="modal-texto">Descripción del artista.</p>
+        </div>
+    </div>
+
+</body>
+</html>
