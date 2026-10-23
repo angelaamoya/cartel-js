@@ -189,26 +189,26 @@ function pintarCartel(diaActuacion){
 
 
     for (var i = 0; i < artistas.length; i++ ) {
-        if ( diaActuacion==="Todos"  ||  artistas[i].dia === dia ) {
+        if ( diaActuacion==="Todos"  ||  artistas[i].dia === diaActuacion ) {
 
-                  html = html +
-                            '<article class="artista">' +
-            
-                                '<div class="artista__poster" style="background-color: ' + artistas[i].color + '">' +
-            
-                                    '<h2 class="artista__nombre">' + artistas[i].nombre + '</h2>' +
-            
-                                '</div>' +
-            
-                                '<div class="artista__info">' +
-            
-                                    '<p class="artista__datos">' + artistas[i].genero + ' · ' + artistas[i].dia + '</p>' +
-            
-                                    '<button type="button" class="boton boton--borde boton-artista" data-indice="' + i + '">Ver más</button>' +
-            
-                                '</div>' +
-            
-                            '</article>';
+                html = html +
+                        '<article class="artista">' +
+        
+                            '<div class="artista__poster" style="background-color: ' + artistas[i].color + '">' +
+        
+                                '<h2 class="artista__nombre">' + artistas[i].nombre + '</h2>' +
+        
+                            '</div>' +
+        
+                            '<div class="artista__info">' +
+        
+                                '<p class="artista__datos">' + artistas[i].genero + ' · ' + artistas[i].dia + '</p>' +
+        
+                                '<button type="button" class="boton boton--borde boton-artista" data-indice="' + i + '">Ver más</button>' +
+        
+                            '</div>' +
+        
+                        '</article>';
         }
 
     }
@@ -218,7 +218,7 @@ function pintarCartel(diaActuacion){
 }
 
 // Paso 3: Filtros por dia 
-    var filtros = document.querySelector(".filtro"); 
+    var filtros = document.querySelectorAll(".filtro"); 
     console.log(filtros);
 
 for (var k = 0; k < filtros.length; k++) {
