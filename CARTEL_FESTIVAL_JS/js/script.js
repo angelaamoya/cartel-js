@@ -221,12 +221,13 @@ function pintarCartel(diaActuacion){
     var filtros = document.querySelector(".filtro"); 
     console.log(filtros);
 
-for (var k = 0; k < filtros.length; k++) 
+for (var k = 0; k < filtros.length; k++) {
     filtros[k].addEventListener("click", function(){ 
-    console.log( this.getAttribute("data-dia") );
-    pintarCartel(dia);
+        var dia = this.getAttribute("data-dia");
+        pintarCartel(dia);
 
-});
+    });
+}
 //llamamos a la funcion
 
 pintarCartel("Todos");
