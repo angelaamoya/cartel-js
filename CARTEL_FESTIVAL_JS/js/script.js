@@ -184,44 +184,52 @@ var cartel = document.querySelector("#cartel");
 
 //funcuion que pinta los artistas en el cartel
 
-function pintarCartel(){
+function pintarCartel(diaActuacion){
     var html="";
 
 
     for (var i = 0; i < artistas.length; i++ ) {
-        html = html +
+        if ( diaActuacion==="Todos"  ||  artistas[i].dia === dia ) {
 
-                '<article class="artista">' +
-
-                    '<div class="artista__poster" style="background-color: ' + artistas[i].color + '">' +
-
-                        '<h2 class="artista__nombre">' + artistas[i].nombre + '</h2>' +
-
-                    '</div>' +
-
-                    '<div class="artista__info">' +
-
-                        '<p class="artista__datos">' + artistas[i].genero + ' · ' + artistas[i].dia + '</p>' +
-
-                        '<button type="button" class="boton boton--borde boton-artista" data-indice="' + i + '">Ver más</button>' +
-
-                    '</div>' +
-
-                '</article>';
-
-
-
+                  html = html +
+                            '<article class="artista">' +
+            
+                                '<div class="artista__poster" style="background-color: ' + artistas[i].color + '">' +
+            
+                                    '<h2 class="artista__nombre">' + artistas[i].nombre + '</h2>' +
+            
+                                '</div>' +
+            
+                                '<div class="artista__info">' +
+            
+                                    '<p class="artista__datos">' + artistas[i].genero + ' · ' + artistas[i].dia + '</p>' +
+            
+                                    '<button type="button" class="boton boton--borde boton-artista" data-indice="' + i + '">Ver más</button>' +
+            
+                                '</div>' +
+            
+                            '</article>';
+        }
 
     }
-//mostramos cuantos artistas hemos llamado
- contador.textContent = "Mostrando " + artistas.length + " artistas";
- 
+//mostramos cuantos artistas se han pintado
+    contador. textContent = "Mostrando " + artistas.length + " artistas.";
     cartel.innerHTML = html;
 }
 
+// Paso 3: Filtros por dia 
+    var filtros = document.querySelector(".filtro"); 
+    console.log(filtros);
+
+for (var k = 0; k < filtros.length; k++) 
+    filtros[k].addEventListener("click", function(){ 
+    console.log( this.getAttribute("data-dia") );
+    pintarCartel(dia);
+
+});
 //llamamos a la funcion
 
-pintarCartel();
+pintarCartel("Todos");
 
 
 
