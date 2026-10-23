@@ -176,4 +176,52 @@ var artistas = [
 
 
 // Empieza aquí tu código
+console.log(artistas.length); 
+console.log(artistas[1].nombre);
+
+// Seleccionamos los elementos
+var cartel = document.querySelector("#cartel");
+
+//funcuion que pinta los artistas en el cartel
+
+function pintarCartel(){
+    var html="";
+
+
+    for (var i = 0; i < artistas.length; i++ ) {
+        html = html +
+
+                '<article class="artista">' +
+
+                    '<div class="artista__poster" style="background-color: ' + artistas[i].color + '">' +
+
+                        '<h2 class="artista__nombre">' + artistas[i].nombre + '</h2>' +
+
+                    '</div>' +
+
+                    '<div class="artista__info">' +
+
+                        '<p class="artista__datos">' + artistas[i].genero + ' · ' + artistas[i].dia + '</p>' +
+
+                        '<button type="button" class="boton boton--borde boton-artista" data-indice="' + i + '">Ver más</button>' +
+
+                    '</div>' +
+
+                '</article>';
+
+
+
+
+    }
+//mostramos cuantos artistas hemos llamado
+ contador.textContent = "Mostrando " + artistas.length + " artistas";
+ 
+    cartel.innerHTML = html;
+}
+
+//llamamos a la funcion
+
+pintarCartel();
+
+
 
