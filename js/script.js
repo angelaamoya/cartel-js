@@ -215,11 +215,19 @@ function pintarCartel(diaActuacion){
 //mostramos cuantos artistas se han pintado
     contador. textContent = "Mostrando " + artistas.length + " artistas.";
     cartel.innerHTML = html;
+
+
+    // Paso 4: ventana modal asociada a cada boton de cada artista
+    var botonesArtista = document.querySelectorAll(".boton-artista");
+    for (var j = 0; j < botonesArtista.length; j++) {
+        botonesArtista[j].addEventListener("click", abrirModal);
+    }
 }
 
+
 // Paso 3: Filtros por dia 
-    var filtros = document.querySelectorAll(".filtro"); 
-    console.log(filtros);
+var filtros = document.querySelectorAll(".filtro"); 
+console.log(filtros);
 
 for (var k = 0; k < filtros.length; k++) {
     filtros[k].addEventListener("click", function(){ 
@@ -228,9 +236,42 @@ for (var k = 0; k < filtros.length; k++) {
 
     });
 }
+
+//VENTANA MODAL CON DATOS
+var modal = document.querySelector("#modal");
+var modalEtiqueta = document.querySelector("#modal-etiqueta");
+var modalTitulo = document.querySelector("#modal-titulo");
+var modalGenero = document.querySelector("#modal-genero");
+var modalTexto = document.querySelector("#modal-texto");
+
+
+
+
+
+function abrirModal() {
+    //creamos variable indice y sacamos el indice de this.getAtribute("data-indice")
+    //variable artista artista=arstistas[indice]
+    var indice = this.getAttribute("data-indice");
+    var artista= artistas[indice]
+    console.log(artista);
+
+    modalTitulo.textContent = artista.nombre;
+    modalGenero.textContent = artista.genero;
+    modalTexto.textContent = artista.descripcion;
+    //modalEtiqueta es la concentracion de dia hora y escenario
+    modalEtiqueta.textContent = artista.dia +"-"+ artista.hora+"-"+ artista.escenario;
+    
+    modal.classList.add("is-abierta");
+    var modalCerrar = document.querySelector("#modal-cerrar");
+    modalCerrar.addEventListener("click", cerrarModal);
+
+    function cerrarModal() {
+        modal.classList.remove("is-abierta");
+    }
+
+}
+
+
 //llamamos a la funcion
 
 pintarCartel("Todos");
-
-
-
